@@ -1,32 +1,33 @@
 "use strict";
 
-let GoogleApiKeys = {};
+app.factory("GoogleFactory", function($q, $http, FIREBASE_CONFIG, GOOGLEAPIKEY) {
 
-app.factory("GoogleFactory",function($q, $http, FIREBASE_CONFIG, GOOGLEAPIKEY){
+      let apiKeys = {};
 
-	let googleList = (searchText) => {
-		return $q ((resolve, reject)=>{
+      var getLocationItems = (map, query) => {
+          return new Promise((resolve, reject) => {
+            var request = {
+              location: map.getCenter(),
+              radius: '500',
+              query: query
+            };
+            var service = new google.maps.places.PlacesService(map);
+            service.textSearch(request, callback);
 
-			let authHeader = 'Client-ID '+`${GOOGLEAPIKEY.client_id}`;
+            function callback(results, status) {
+              if (status == google.maps.places.PlacesServiceStatus.OK) {
+                for (var i = 0; i < results.length; i++) {
+                  var place = results[i];
+                  console.log(place);
+                }
+                resolve(results);
+              }
+              reject();
+            };
 
-			$http({
-				method:'GET',
-				headers:{
-					'Authorization': authHeader
-				},
-				url:`https://maps.googleapis.com/maps/api/js?key=AIzaSyCNWcrjeWrwU9Yoo4DtzVx_3TE3HF7Czl4{searchText}`
-			}).then( (response) => {
-				console.log('google response', response.data.data.items);
-				resolve(response.data.data.items);
-
-			}, (errorResponse) => {
-				console.log('google fail', errorResponse);
-				reject(errorResponse);
-			});	
-		});
+        });
 	};
-
-
-	return {googleList: googleList};
+            return {
+              getLocationItems: getLocationItems
+            };
 });
-

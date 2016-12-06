@@ -5,7 +5,7 @@ app.controller("AuthCtrl", function($scope, $location, $rootScope, AuthFactory, 
 	$scope.signInContainer = true;
 	$scope.registerContainer = false;
 		$scope.signIn = {
-		email: "e@e.com",
+		email: "d@d.com",
 		password:"123456"
 	};
 
@@ -24,7 +24,7 @@ app.controller("AuthCtrl", function($scope, $location, $rootScope, AuthFactory, 
 			$rootScope.user = userCreds;
 			$scope.login = {};
 			$scope.register = {};
-			$location.url("/users/profile");
+			$location.url("/users/google");
 		});
 	};
 

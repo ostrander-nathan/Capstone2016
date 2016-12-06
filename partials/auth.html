@@ -14,8 +14,8 @@
 		<form class="register-container" ng-show="registerContainer">
 			<h4>Register as a New User</h4>
 			<input class="form-control" placeholder="Email Address" type="email" ng-model="register.email" required autofocus>
-			<input class="form-control" placeholder="Password" type="password" ng-model="register.password" required>
-			<input class="form-control" placeholder="Username" type="username" ng-model="register.username" required><br>
+			<input class="form-control" placeholder="Password" type="password" ng-model="register.password" required autofocus>	
+			<input class="form-control" placeholder="Username" type="text" ng-model="register.username" required autofocus>
 			<button class="btn waves-effect waves-light" type="submit" name="action" ng-click="registerNewUser(register)">Submit
 			</button>
 		</form>
