@@ -1,0 +1,18 @@
+<ul id="slide-out" class="side-nav"  ng-controller="NavCtrl" ng-show="user" >
+    <li><div class="userView">
+      <div class="background">
+        <img src="images/IMG_0098.jpg">
+        <!-- <img gravatar-src-once="user.email"> -->
+      </div>
+      <a href="/#/users/profile"><img class="circle" src="images/IMG_1631.jpg"></a>
+      <a href="/#/users/profile"><span class="white-text name">John Doe</span></a>
+      <a href="/#/users/profile"><span class="white-text email">EMAILADDRESS@gmail.com</span></a>
+    </div></li>
+    <li><a href="/#/users/profile">My Profile</a></li>
+    <li><a class="waves-effect" href="/#/users/google">Search Locations</a></li>
+    <li><a class="subheader">Friends</a></li>
+    <li><div class="divider"></div></li>
+    <li><a href="/#/logout" ng-click="logout">Logout</a></li>
+  </ul>
+  <a href="#" data-activates="slide-out" class="button-collapse" ng-show="user"><i class="material-icons">MENU <i class="fa fa-bars" aria-hidden="true"></i></i></a>
+

@@ -1,0 +1,20 @@
+<div ng-controller="GoogleCtrl" ng-show="user">
+  <h3>Google Maps Page</h3>
+  <!-- search/go to current location -->
+  <!-- <div class="text-right"> -->
+    <div class="input-append text-right">
+      <input id="location" type="text" ng-model="query" placeholder="Type City, State or Address Here" />
+      <button class="btn waves-effect waves-light" type="button" ng-click="search()" ng-disabled="query.length == 0" title="search">
+        <i class="icon-search"></i>Search Location
+      </button>
+      <button class="btn waves-effect waves-light" type="button" ng-click="currentLocation()" title="current location">
+        <i class="icon-home"></i>Whats my current Location?
+      </button>
+    </div>
+  </div>
+  <!-- map -->
+  <div id="map">
+  </div>
+</div>
+
+

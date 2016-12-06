@@ -1,0 +1,27 @@
+.material-icons {
+  margin: 10px; }
+
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border: 1px solid Silver;
+  margin-bottom: 15px; }
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer; }
+
+/* Add some padding inside the card container */
+.cardContainer {
+  padding: 2px 16px; }
+
+html {
+  font-family: GillSans, Calibri, Trebuchet, sans-serif; }
+
+#map {
+  width: 100%;
+  height: 500px;
+  margin: 12px;
+  box-shadow: 0 3px 25px black; }
