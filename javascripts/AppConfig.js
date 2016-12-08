@@ -43,11 +43,11 @@ app.config(function($routeProvider){
 			controller: 'GoogleCtrl',
 			resolve: {isAuth} 
 		})
-		// .when('/pins/search', {
-		// 	templateUrl:'/partials/searchImgur.html',
-		// 	controller: 'SearchCtrl',
-		// 	resolve: {isAuth} 
-		// })
+		.when('/users/review', {
+			templateUrl:'/partials/review.html',
+			controller: 'ReviewCtrl',
+			resolve: {isAuth} 
+		})
 		.when('/logout', {
 			templateUrl:'partials/auth.html',
 			controller: 'AuthCtrl',

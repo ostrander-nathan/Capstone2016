@@ -13,6 +13,7 @@ app.factory("GoogleFactory", function($q, $http, FIREBASE_CONFIG, GOOGLEAPIKEY) 
             };
             var service = new google.maps.places.PlacesService(map);
             service.textSearch(request, callback);
+            console.log(request, callback);
 
             function callback(results, status) {
               if (status == google.maps.places.PlacesServiceStatus.OK) {

@@ -1,5 +1,7 @@
 "use strict";
 
-app.controller("ProfileCtrl", function($scope, $rootScope){
+app.controller("ProfileCtrl", function($scope, $rootScope, GoogleFactory, UserFactory, $location, AuthFactory, ProfileFactory){
+
+
 
 });
