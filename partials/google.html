@@ -3,18 +3,40 @@
   <!-- search/go to current location -->
   <!-- <div class="text-right"> -->
     <div class="input-append text-right">
-      <input id="location" type="text" ng-model="query" placeholder="Type City, State or Address Here" />
+      <!-- <input id="location" type="text" ng-model="query" placeholder="Type City, State or Address Here" /> -->
+      <input id="pac-input" class="controls"  ng-model="query" type="text" placeholder="SearchBox"/>
       <button class="btn waves-effect waves-light" type="button" ng-click="search()" ng-disabled="query.length == 0" title="search">
         <i class="icon-search"></i>Search Location
-      </button>
-      <button class="btn waves-effect waves-light" type="button" ng-click="currentLocation()" title="current location">
-        <i class="icon-home"></i>Whats my current Location?
       </button>
     </div>
   </div>
   <!-- map -->
-  <div id="map">
+    <div id="floating-panel">
+      <input  ng-click="clearMarkers()" type=button value="Hide Markers">
+      <input ng-click="showMarkers()" type=button value="Show All Markers">
+      <input ng-click="deleteMarkers()" type=button value="Delete Markers">
+    </div>
+<div id="map">
+  <!-- <div id="content">
+  <div id="content" ng-model="markers">
+      <div id="siteNotice">
+      </div>
+      <h1 id="firstHeading" class="firstHeading">Uluru</h1>
+      <div id="bodyContent">
+      <p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large 
+      sandstone rock formation in the southern part of the 
+      Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) 
+      south west of the nearest large town, Alice Springs; 450&#160;km 
+      (280&#160;mi) by road. Kata Tjuta and Uluru are the two major 
+      features of the Uluru - Kata Tjuta National Park. Uluru is 
+      sacred to the Pitjantjatjara and Yankunytjatjara, the 
+      Aboriginal people of the area. It has many springs, waterholes, 
+      rock caves and ancient paintings. Uluru is listed as a World 
+      Heritage Site.</p>
+      <p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">
+      https://en.wikipedia.org/w/index.php?title=Uluru</a> 
+      (last visited June 22, 2009).</p>
+      </div>
+      </div> -->
   </div>
 </div>
-
-

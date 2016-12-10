@@ -43,15 +43,15 @@ app.config(function($routeProvider){
 			controller: 'GoogleCtrl',
 			resolve: {isAuth} 
 		})
-		// .when('/pins/search', {
-		// 	templateUrl:'/partials/searchImgur.html',
-		// 	controller: 'SearchCtrl',
-		// 	resolve: {isAuth} 
-		// })
+		.when('/users/review/lat/:lat/lng/:lng', {
+			templateUrl:'/partials/review.html',
+			controller: 'ReviewCtrl',
+			resolve: {isAuth} 
+		})
 		.when('/logout', {
 			templateUrl:'partials/auth.html',
 			controller: 'AuthCtrl',
 			resolve: {isAuth} 
 		})
-		.otherwise('/auth');
+		.otherwise({redirectTo: function(params,route) {console.log(route);}});
 });
