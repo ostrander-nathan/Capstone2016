@@ -1,17 +1,27 @@
 "use strict";
 
-app.factory("ReviewFactory", function($q, $http, FIREBASE_CONFIG){
+app.factory("ReviewFactory", function($q, $http, FIREBASE_CONFIG, GOOGLEAPIKEY){
 
-	var postReview = function(authData){
+	var postReview = function(reviewData, uid){
+		console.log("reviewData",reviewData );
 		return $q((resolve, reject)=>{
 			$http.post(`${FIREBASE_CONFIG.databaseURL}/locations.json`, JSON.stringify({
-				uid: authData.uid,
-				username: authData.username
+				UserImage: reviewData.UserImage,
+				name: reviewData.name,
+				drone: reviewData.drone,
+				date: reviewData.date,
+				review: reviewData.review,
+				// userRating: reviewData.userRating,
+				uid: uid,
+				lng: reviewData.lng,
+				lat: reviewData.lat
 			}))
 			.success(function(postResponse){
+				console.log("postResponse",postResponse );
 				resolve(postResponse);
 			})
 			.error(function(postError){
+				console.log("postError",postError );
 				reject(postError);
 			});
 		});

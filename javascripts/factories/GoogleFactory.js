@@ -2,7 +2,7 @@
 
 app.factory("GoogleFactory", function($q, $http, FIREBASE_CONFIG, GOOGLEAPIKEY) {
 
-      let apiKeys = {};
+      // let apiKeys = {};
 
       var getLocationItems = (map, query) => {
           return new Promise((resolve, reject) => {
@@ -24,7 +24,7 @@ app.factory("GoogleFactory", function($q, $http, FIREBASE_CONFIG, GOOGLEAPIKEY) 
                 resolve(results);
               }
               reject();
-            };
+            }
 
         });
 	};

@@ -43,7 +43,7 @@ app.config(function($routeProvider){
 			controller: 'GoogleCtrl',
 			resolve: {isAuth} 
 		})
-		.when('/users/review', {
+		.when('/users/review/lat/:lat/lng/:lng', {
 			templateUrl:'/partials/review.html',
 			controller: 'ReviewCtrl',
 			resolve: {isAuth} 
@@ -53,5 +53,5 @@ app.config(function($routeProvider){
 			controller: 'AuthCtrl',
 			resolve: {isAuth} 
 		})
-		.otherwise('/auth');
+		.otherwise({redirectTo: function(params,route) {console.log(route);}});
 });
