@@ -1,36 +1,35 @@
 "use strict";
 
-app.controller("ProfileCtrl", function($scope, $rootScope, GoogleFactory, UserFactory, $location, AuthFactory, ProfileFactory, BoardFactory ){
+app.controller("ProfileCtrl", function($scope, $rootScope, GoogleFactory, UserFactory, $location, AuthFactory, ProfileFactory, ReviewFactory ){
 
 	$scope.reviews = [];
 
-	//reviews
 	let getReviews = function(){
-		BoardFactory.getreviewsFB($rootScope.user.uid).then(function(reviewsFB){
+		ReviewFactory.getReview($rootScope.user.uid).then(function(reviewsFB){
 			console.log("reviews from controller", reviewsFB);
 			$scope.reviews = reviewsFB;
-			PinFactory.getPinsFB($rootScope.user.uid).then(function(reviewsFB){
-			console.log("pins from controller", pinsFB);
-			reviewsFB.forEach(function(review){
-				$scope.reviews.forEach(function(reviewBoard){
-					//console.log('pins', pin);
-					if(review.reviewBoardId === reviewBoard.id){
-						reviewBoard.pins.push(review);
-					}
-				});
-			});
-
-
-		});
 		});
 	};
 	getReviews();	
 
-	$scope.deleteReview = function(boardId){
-		console.log("delete board", boardId);
-		ProfileFactory.deleteBoardFB(boardId).then(function(response){
+	$scope.deleteReview = function(deleteId){
+		// $scope.reviews = deleteId;
+		ProfileFactory.deleteReviewFB(deleteId).then(function(response){
+		console.log("delete review", deleteId);
+			getReviews();
+		});
+	};	
+
+	$scope.editReview = function(reviewId){
+		console.log("edit review", reviewId);
+		ProfileFactory.editReviewFB(reviewId).then(function(response){
+			// $scope.newReview = {};
+			$location.url('/users/review/lat/:lat/lng/:lng');
 			getReviews();
 		});
 	};
+	$(document).ready(function(){
+    	$('.materialboxed').materialbox();
+  });
 });
 

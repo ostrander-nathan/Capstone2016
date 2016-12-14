@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller("NavCtrl", function($scope, $rootScope){ // NAV CONTROLLER LINE 4 holds a array of nav headers 
+app.controller("NavCtrl", function($scope, $rootScope, UserFactory){ // NAV CONTROLLER LINE 4 holds a array of nav headers 
 	
 	$scope.navItems = [{
 		name:"Logout",
@@ -20,7 +20,16 @@ app.controller("NavCtrl", function($scope, $rootScope){ // NAV CONTROLLER LINE 4
 	// }
 	];
 
-
+$scope.userNavName = function(){
+	UserFactory.getUser(userName).then(function(response){
+	console.log("response in NavCtrl",response );		
+	});
+};
+// $scope.logout = function() {
+// 	$scope.sideNav = {
+// 		hide: true
+// 	}
+// }
 
 $('.button-collapse').sideNav({
       menuWidth: 300, // Default is 240

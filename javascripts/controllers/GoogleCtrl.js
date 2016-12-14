@@ -21,10 +21,17 @@ app.controller("GoogleCtrl", function($scope, $rootScope, GoogleFactory, $locati
 
     // Adds a marker to the map and push to the array.
     function addMarker(location) {
+      var icon = {
+        url: "/images/droneIcon.png",
+        scaledSize: new google.maps.Size(30, 30), // scaled size
+        origin: new google.maps.Point(0,0), // origin
+        anchor: new google.maps.Point(0, 0)
+      };
       //GoogleFactory.getLocationItems($scope.map, $scope.query)
       var markerAdd = new google.maps.Marker({
         position: location,
-        map: $scope.map
+        map: $scope.map,
+        icon: icon
       });
 
       var contentString = `<div><a href='#/users/review/lat/${location.lat()}/lng/${location.lng()}'>Add Review</a></div>`;      
@@ -37,7 +44,7 @@ app.controller("GoogleCtrl", function($scope, $rootScope, GoogleFactory, $locati
         infoWindow.open($scope.map, markerAdd);
       });
 
-      console.log("markerAdd in addMarker Function", markerAdd);
+      // console.log("markerAdd in addMarker Function", markerAdd);
       markers.push({
         lat: markerAdd.getPosition().lat(),
         lng: markerAdd.getPosition().lng()
@@ -45,24 +52,7 @@ app.controller("GoogleCtrl", function($scope, $rootScope, GoogleFactory, $locati
       console.log("markers", markers);
       $scope.$apply();
     }
-
-    // if (navigator.geolocation) {
-    //   navigator.geolocation.getCurrentPosition(function(position) {
-    //     var pos = {
-    //       lat: position.coords.latitude,
-    //       lng: position.coords.longitude
-    //     };
-    //     infoWindow.setPosition(pos);
-    //     infoWindow.setContent('Location found.');
-    //     $scope.map.setCenter(pos);
-    //   }, function() {
-    //     handleLocationError(true, infoWindow, $scope.map.getCenter());
-    //   });
-    // } else {
-    //   // Browser doesn't support Geolocation
-    //   handleLocationError(false, infoWindow, $scope.map.getCenter());
-    // }
-
+    
     function handleLocationError(browserHasGeolocation, infoWindow, pos) {
       infoWindow.setPosition(pos);
       infoWindow.setContent(browserHasGeolocation ?
@@ -74,7 +64,7 @@ app.controller("GoogleCtrl", function($scope, $rootScope, GoogleFactory, $locati
     $scope.search = function() {
       GoogleFactory.getLocationItems($scope.map, $scope.query)
         .then(function(result) {
-          $scope.map.setCenter(result[0].geometry.location)
+          $scope.map.setCenter(result[0].geometry.location);
           var marker = new google.maps.Marker({
             position: result[0].geometry.location,
             map: $scope.map,
@@ -83,61 +73,13 @@ app.controller("GoogleCtrl", function($scope, $rootScope, GoogleFactory, $locati
           });
           console.log("marker", marker);
           console.log("result of search button click", result);
-          var input = document.getElementById('pac-input');
-          console.log("input from search box pac-input", result)
-          var markers = result;
-          
-          console.log("markers", markers);
-    //BEGINING OF INFOWINDOW TEST
-      // contentString = '<div id="content">'+
-      // '<div id="siteNotice">'+
-      // '</div>'+
-      // '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
-      // '<div id="bodyContent">'+
-      // '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
-      // 'sandstone rock formation in the southern part of the '+
-      // 'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) '+
-      // 'south west of the nearest large town, Alice Springs; 450&#160;km '+
-      // '(280&#160;mi) by road. Kata Tjuta and Uluru are the two major '+
-      // 'features of the Uluru - Kata Tjuta National Park. Uluru is '+
-      // 'sacred to the Pitjantjatjara and Yankunytjatjara, the '+
-      // 'Aboriginal people of the area. It has many springs, waterholes, '+
-      // 'rock caves and ancient paintings. Uluru is listed as a World '+
-      // 'Heritage Site.</p>'+
-      // '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
-      // 'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
-      // '(last visited June 22, 2009).</p>'+
-      // '</div>'+
-      // '</div>';
-      // console.log("contentString",contentString );
 
-    //END OF INFOWINDOW
+          var input = document.getElementById('pac-input');
+          console.log("input from search box pac-input", result);
+          var markers = result;
+          console.log("markers", markers);
         });
-    }
+    };
   }
   initialize();
 });
-// // Sets the map on all markers in the array.
-// function setMapOnAll(map) {
-//   for (var i = 0; i < markers.length; i++) {
-//     markers[i].setMap(map);
-//   }
-// }
-
-// // Removes the markers from the map, but keeps them in the array.
-// function clearMarkers() {
-//   setMapOnAll(null);
-// }
-
-// // Shows any markers currently in the array.
-// function showMarkers() {
-//   setMapOnAll(map);
-// }
-
-// // Deletes all markers in the array by removing references to them.
-// function deleteMarkers() {
-//   clearMarkers();
-//   markers = [];
-// }
-
-//

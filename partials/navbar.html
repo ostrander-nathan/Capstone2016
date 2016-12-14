@@ -1,18 +1,16 @@
 <ul id="slide-out" class="side-nav"  ng-controller="NavCtrl" ng-show="user" >
     <li><div class="userView">
       <div class="background">
-        <img src="images/IMG_0098.jpg">
-        <!-- <img gravatar-src-once="user.email"> -->
+        <img src="/images/nashvilledrone.jpg">
       </div>
-      <a href="/#/users/profile"><img class="circle" src="images/IMG_1631.jpg"></a>
+      <a href="/#/users/profile"><img class="circle" src="/images/droneIcon.png"></a>
       <a href="/#/users/profile"><span class="white-text name">John Doe</span></a>
       <a href="/#/users/profile"><span class="white-text email">EMAILADDRESS@gmail.com</span></a>
     </div></li>
     <li><a href="/#/users/profile">My Profile</a></li>
     <li><a class="waves-effect" href="/#/users/google">Search Locations</a></li>
-    <li><a class="waves-effect" href="/#/users/review">Reviews</a></li>
+    <!-- <li><a class="waves-effect" href="/#/users/review">Reviews</a></li> -->
     <li><div class="divider"></div></li>
     <li><a href="/#/logout" ng-click="logout">Logout</a></li>
   </ul>
-  <a href="#" data-activates="slide-out" class="button-collapse" ng-show="user"><i class="material-icons">MENU <i class="fa fa-bars" aria-hidden="true"></i></i></a>
-
+  <a href="#" data-activates="slide-out" class="button-collapse" ng-show="user"><i class="material-icons"><i class="fa fa-bars fa-3x" aria-hidden="true"></i></i></a>
