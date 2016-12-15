@@ -1,4 +1,15 @@
+// .navBtn {
+//         background-color: black;
+//         height: 75px;
+//         width: 75px;
+//         color: white;
+//         padding: 10px; 
+//         margin: 15px;
+//       }
 
+#authPage{
+  background-image: url("/images/Welcome-to-Grand-Canyon-National-Park.jpg")
+}
 .material-icons{
 	margin: 10px;
 }
@@ -32,6 +43,8 @@ html, body {
         margin: 0;
         padding: 0;
       }
+
+      // Google Map 
       .controls {
         margin-top: 10px;
         border: 1px solid transparent;
@@ -76,6 +89,7 @@ html, body {
       #target {
         width: 345px;
       }
+      //share buttons
       #share-buttons img {
         width: 35px;
         padding: 5px;

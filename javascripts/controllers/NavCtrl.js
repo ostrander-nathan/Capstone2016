@@ -14,10 +14,6 @@ app.controller("NavCtrl", function($scope, $rootScope, UserFactory){ // NAV CONT
 		name:"Search Item",
 		url:"#/users/google"
 	}
-	// {
-	// 	name:"Add Boards",
-	// 	url:"#/search/add"
-	// }
 	];
 
 $scope.userNavName = function(){
@@ -25,11 +21,6 @@ $scope.userNavName = function(){
 	console.log("response in NavCtrl",response );		
 	});
 };
-// $scope.logout = function() {
-// 	$scope.sideNav = {
-// 		hide: true
-// 	}
-// }
 
 $('.button-collapse').sideNav({
       menuWidth: 300, // Default is 240
