@@ -1,6 +1,6 @@
 "use strict";
 app.controller("GoogleCtrl", function($scope, $rootScope, GoogleFactory, $location, UserFactory) {
-  $scope.map;
+  // $scope.map;
   var service;
   var infowindow;
   var markers = [];

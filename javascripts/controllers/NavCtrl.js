@@ -16,11 +16,11 @@ app.controller("NavCtrl", function($scope, $rootScope, UserFactory){ // NAV CONT
 	}
 	];
 
-$scope.userNavName = function(){
-	UserFactory.getUser(userName).then(function(response){
-	console.log("response in NavCtrl",response );		
-	});
-};
+// $scope.userNavName = function(){
+// 	UserFactory.getUser(userName).then(function(response){
+// 	console.log("response in NavCtrl",response );		
+// 	});
+// };
 
 $('.button-collapse').sideNav({
       menuWidth: 300, // Default is 240

@@ -48,5 +48,33 @@ app.factory("ReviewFactory", function($q, $http, FIREBASE_CONFIG, GOOGLEAPIKEY){
 			});
 		});
 	};
-return {postReview: postReview, getReview: getReview};
+		var editReviewFB = function(editItem){
+    return $q((resolve, reject) =>{
+      $http.put(`${FIREBASE_CONFIG.databaseURL}/locations/${editItem.id}.json`,
+         JSON.stringify({
+				userName: editItem.userName,
+				image: editItem.image,
+				name: editItem.name,
+				drone: editItem.drone,
+				date: editItem.date,
+				review: editItem.review,
+				uid: editItem.uid,
+				lng: editItem.lng,
+				lat: editItem.lat,
+				terrain: editItem.terrain,
+				terrain1: editItem.terrain1,
+				terrain2: editItem.terrain2,
+				terrain3: editItem.terrain3,
+				terrain4: editItem.terrain4
+         })
+       )
+        .success(function(editResponse){
+          resolve(editResponse);
+        })
+        .error(function(editError){
+          reject(editError);
+        });
+    });
+  };
+return {postReview: postReview, getReview: getReview, editReviewFB: editReviewFB};
 });

@@ -33,11 +33,8 @@ app.controller("ProfileCtrl", function($q, $http, FIREBASE_CONFIG, $scope, $root
 		ProfileFactory.getMapFB(mapCoord).then(function(response){
 		console.log("map coord", mapCoord);
 			
-		})
+		});
 	};
 
-	// $(document).ready(function(){
- //    	$('.materialboxed').materialbox();
- //  });
 });
 

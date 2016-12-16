@@ -59,55 +59,28 @@ app.factory("ProfileFactory", function($q, $http, FIREBASE_CONFIG, GOOGLEAPIKEY)
 	  };
 
 
-	// var editReviewFB = function(editItem){
- //    return $q((resolve, reject) =>{
- //      $http.put(`${FIREBASE_CONFIG.databaseURL}/locations/${editItem}.json`,
- //         JSON.stringify({
-	// 			userName: reviewData.userName,
-	// 			image: reviewData.image,
-	// 			name: reviewData.name,
-	// 			drone: reviewData.drone,
-	// 			date: reviewData.date,
-	// 			review: reviewData.review,
-	// 			uid: uid,
-	// 			lng: reviewData.lng,
-	// 			lat: reviewData.lat,
-	// 			terrain: reviewData.terrain,
-	// 			terrain1: reviewData.terrain1,
-	// 			terrain2: reviewData.terrain2,
-	// 			terrain3: reviewData.terrain3,
-	// 			terrain4: reviewData.terrain4
- //         })
- //       )
- //        .success(function(editResponse){
- //          resolve(editResponse);
- //        })
- //        .error(function(editError){
- //          reject(editError);
- //        });
- //    });
- //  };
 
-  var getMapFB = function(getMap) {
-  	console.log("getMap",getMap )
-  	return $q((resolve, reject) =>{
-      $http.get(`${FIREBASE_CONFIG.databaseURL}/locations/${getMap}.json`,
-         JSON.stringify({
-				lng: reviewData.lng,
-				lat: reviewData.lat
-         })
-       )
-        .success(function(editResponse){
-          resolve(editResponse);
-        })
-        .error(function(editError){
-          reject(editError);
-        });
-    });
-  };
+
+  // var getMapFB = function(getMap) {
+  // 	console.log("getMap",getMap )
+  // 	return $q((resolve, reject) =>{
+  //     $http.get(`${FIREBASE_CONFIG.databaseURL}/locations/${getMap}.json`,
+  //        JSON.stringify({
+		// 		lng: reviewData.lng,
+		// 		lat: reviewData.lat
+  //        })
+  //      )
+  //       .success(function(editResponse){
+  //         resolve(editResponse);
+  //       })
+  //       .error(function(editError){
+  //         reject(editError);
+  //       });
+  //   });
+  // };
 
 	return {
-		getMapFB: getMapFB,
+		// getMapFB: getMapFB,
 		getSingleReviewFB: getSingleReviewFB,
 		getReviewFB: getReviewFB, 
 		postReviewFB: postReviewFB,

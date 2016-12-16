@@ -53,6 +53,7 @@ app.config(function($routeProvider){
 			controller: 'EditReviewCtrl',
 			resolve: {isAuth} 
 		})		
+		
 		.when('/logout', {
 			templateUrl:'partials/auth.html',
 			controller: 'AuthCtrl',
