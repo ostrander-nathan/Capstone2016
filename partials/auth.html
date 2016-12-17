@@ -1,4 +1,7 @@
-<div class="col-sm-6 col-sm-offset-3">
+<div class="container">
+<!-- <img src="/images/droneWeb.jpg" class="droneWeb"> -->
+<div class="col-sm-6 col-sm-offset-3"  id="authBox">
+<!-- <h1 class="title">EyeFly</h1> -->
   <div class="row">
     <a class="waves-effect waves-light btn" ng-click="setSignInContainer()">Sign-In</a>
     <a class="waves-effect waves-light btn" ng-click="setRegisterContainer()">Register</a>
@@ -7,7 +10,7 @@
     <form class="signIn-container" ng-show="signInContainer">
       <h4>Sign-In</h4>
       <input class="form-control" placeholder="Email Address" type="email" ng-model="signIn.email" required autofocus>
-      <input class="form-control" placeholder="Password" type="password" ng-model="signIn.password" required>
+      <input class="form-control" placeholder="Password" type="password" ng-model="signIn.password" required autofocus>
       <button class="btn waves-effect waves-light" type="submit" name="action" ng-click="signInUser(signIn)">Submit
       </button>
     </form>
@@ -21,4 +24,5 @@
     </form>
     <!-- <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div> -->
   </div>
+</div>
 </div>

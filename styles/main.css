@@ -1,11 +1,38 @@
+.imageResize {
+  width: 100px;
+  /* you can use % */
+  height: 100px; }
+
 .navBtn {
   margin: 15px; }
 
+div #authBox {
+  background: center center no-repeat;
+  border: 1px solid black;
+  padding: 30px;
+  border-radius: 5%; }
+
+.btn, .form-control {
+  background-color: #2c2431;
+  font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif; }
+
+.btn:hover, .form-control {
+  background-color: #d5ccc5; }
+
+.btn:active {
+  background-color: #949293; }
+
+.btn:focus {
+  background-color: #949293; }
+
+.droneWeb {
+  width: 200px;
+  height: 150px;
+  position: center;
+  margin-left: 50px; }
+
 img {
   border-radius: 5px 5px 0 0; }
-
-.container {
-  padding: 2px 16px; }
 
 .mapHolder {
   width: 75%;
@@ -13,13 +40,13 @@ img {
 
 h1, th {
   font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
-  font-size: 24px;
+  font-size: 40px;
   font-style: normal;
   font-variant: normal;
   font-weight: bold;
   line-height: 26.4px; }
 
-h3 {
+h3, form {
   font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
   font-size: 14px;
   font-style: normal;
