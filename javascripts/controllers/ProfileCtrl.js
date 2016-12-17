@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller("ProfileCtrl", function($scope, $rootScope, GoogleFactory, UserFactory, $location, AuthFactory, ProfileFactory, ReviewFactory ){
+app.controller("ProfileCtrl", function($q, $http, FIREBASE_CONFIG, $scope, $rootScope, GoogleFactory, UserFactory, $location, AuthFactory, ProfileFactory, ReviewFactory ){
 
 	$scope.reviews = [];
 
@@ -22,14 +22,19 @@ app.controller("ProfileCtrl", function($scope, $rootScope, GoogleFactory, UserFa
 
 	$scope.editReview = function(reviewId){
 		console.log("edit review", reviewId);
-		ProfileFactory.editReviewFB(reviewId).then(function(response){
-			// $scope.newReview = {};
-			$location.url('/users/review/lat/:lat/lng/:lng');
-			getReviews();
+			$location.url(`/users/edit/review/${reviewId}`);
+	};
+
+	$scope.newReview = function(editResponse) {
+		console.log("editResponse",editResponse );
+
+	};
+	$scope.showMap = function(mapCoord){
+		ProfileFactory.getMapFB(mapCoord).then(function(response){
+		console.log("map coord", mapCoord);
+			
 		});
 	};
-	$(document).ready(function(){
-    	$('.materialboxed').materialbox();
-  });
+
 });
 

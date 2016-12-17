@@ -1,6 +1,6 @@
 "use strict";
 app.controller("GoogleCtrl", function($scope, $rootScope, GoogleFactory, $location, UserFactory) {
-  $scope.map;
+  // $scope.map;
   var service;
   var infowindow;
   var markers = [];
@@ -24,17 +24,26 @@ app.controller("GoogleCtrl", function($scope, $rootScope, GoogleFactory, $locati
       var icon = {
         url: "/images/droneIcon.png",
         scaledSize: new google.maps.Size(30, 30), // scaled size
-        origin: new google.maps.Point(0,0), // origin
+        origin: new google.maps.Point(0, 0), // origin
         anchor: new google.maps.Point(0, 0)
       };
-      //GoogleFactory.getLocationItems($scope.map, $scope.query)
+      
       var markerAdd = new google.maps.Marker({
         position: location,
         map: $scope.map,
+        animation: google.maps.Animation.DROP,
         icon: icon
       });
+      markerAdd.addListener('click', toggleBounce);
 
-      var contentString = `<div><a href='#/users/review/lat/${location.lat()}/lng/${location.lng()}'>Add Review</a></div>`;      
+      function toggleBounce() {
+        if (markerAdd.getAnimation() !== null) {
+          markerAdd.setAnimation(null);
+        } else {
+          markerAdd.setAnimation(google.maps.Animation.BOUNCE);
+        }
+      }
+      var contentString = `<div><a href='#/users/review/lat/${location.lat()}/lng/${location.lng()}'>Add Review</a></div>`;
       var infoWindow = new google.maps.InfoWindow({
         map: $scope.map,
         content: contentString
@@ -52,13 +61,7 @@ app.controller("GoogleCtrl", function($scope, $rootScope, GoogleFactory, $locati
       console.log("markers", markers);
       $scope.$apply();
     }
-    
-    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-      infoWindow.setPosition(pos);
-      infoWindow.setContent(browserHasGeolocation ?
-        'Error: The Geolocation service failed.' :
-        'Error: Your browser doesn\'t support geolocation.');
-    }
+
 
     // Create the search box and link it to the UI element.
     $scope.search = function() {
@@ -80,6 +83,41 @@ app.controller("GoogleCtrl", function($scope, $rootScope, GoogleFactory, $locati
           console.log("markers", markers);
         });
     };
+    // var infoWindow = new google.maps.InfoWindow({map: map});
+
+    //     // Try HTML5 geolocation.
+    //     if (navigator.geolocation) {
+    //       navigator.geolocation.getCurrentPosition(function(position) {
+    //         var pos = {
+    //           lat: position.coords.latitude,
+    //           lng: position.coords.longitude
+    //         };
+
+    //         infoWindow.setPosition(pos);
+    //         infoWindow.setContent('Location found.');
+    //         map.setCenter(pos);
+    //       }, function() {
+    //         handleLocationError(true, infoWindow, map.getCenter());
+    //       });
+    //     } else {
+    //       // Browser doesn't support Geolocation
+    //       handleLocationError(false, infoWindow, map.getCenter());
+    //     }
+
+
+    //   function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+    //     infoWindow.setPosition(pos);
+    //     infoWindow.setContent(browserHasGeolocation ?
+    //                           'Error: The Geolocation service failed.' :
+    //                           'Error: Your browser doesn\'t support geolocation.');
+    //   }
+    // function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+    //   infoWindow.setPosition(pos);
+    //   infoWindow.setContent(browserHasGeolocation ?
+    //     'Error: The Geolocation service failed.' :
+    //     'Error: Your browser doesn\'t support geolocation.');
+    // }
   }
   initialize();
+
 });

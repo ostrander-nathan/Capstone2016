@@ -1,102 +1,80 @@
-<div ng-controller="ProfileCtrl" ng-show="user">
+<div ng-show="user">
+  <h1 ng-model="user.username">{{user.username}}</h1>
+  <div class="container">
+  <div class="card-block">
+    <!-- <div class="row"> -->
+        <div class="card col s12 m4 l3 " ng-repeat="review in reviews">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" ng-src="{{review.image}}">
+          </div>
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">{{review.name}}<i class="material-icons right fa fa-envelope-open"></i></span>
+            <p>
+              <button class="btn btn-danger" ng-click="showMap(review.id)">Show on Map</button>
+              <button class="btn btn-danger" ng-click="editReview(review.id)">Edit</button>
+              <button class="btn btn-danger fa fa-trash-o" ng-click="deleteReview(review.id)"></button>
+            </p>
+            <div id="share-buttons">
+              <!-- Email -->
+              <a href="mailto:?Subject=Simple Share Buttons&amp;Body=I%20saw%20this%20and%20thought%20of%20you!%20">
+                <img src="https://simplesharebuttons.com/images/somacro/email.png" alt="Email" />
+              </a>
 
-  <div class="valign-wrapper">
-  <!-- </div> -->
-<!-- </div> -->
-<div class="row">
-<table class="highlight">
-  <thead>
-    <tr>
-      <th data-field="name">Name of Location</th>
-      <th data-field="coordinates">Coordinates</th>
-      <th data-field="drone">Type of Drone</th>
-      <th data-field="date">Date Visited</th>
-      <th data-field="review">Review</th>
-      <th data-field="terrain">Types of Terrain</th>
-      <th data-field="images">Images</th>
-    </tr>
-  </thead>
-  <tbody ng-repeat="review in reviews">
-    <h3>{{review.userName}}</h3>
-    <tr>
-      <td>{{review.name}}</td>
-      <td>Latitude: {{review.lat | number:3}} Longitude: {{review.lng | number:3}}</td>
-      <td>{{review.drone}}</td>
-      <td>{{review.date | date:'mediumDate'}}</td>
-      <td>{{review.review}}</td><br>
-      <td><label for="checkboxRows"></label>
-        <div class="row" id="checkboxRows">
-          <form action="#">
-            <div class="col s8">
-              <p>
-                <input type="checkbox" id="test5" disabled="disabled" ng-model="review.terrain" />
-                <label for="test5">Flat Open Grassland</label>
-              </p>
-              <p>
-                <input type="checkbox" id="test6" disabled="disabled" ng-model="review.terrain1" />
-                <label for="test6">Heavily Wooded</label>
-              </p>
-              <p>
-                <input type="checkbox" id="test7" disabled="disabled" ng-model="review.terrain2" />
-                <label for="test7">Swamp</label>
-              </p>
+              <!-- Facebook -->
+              <a href="http://www.facebook.com/sharer.php" target="_blank">
+                <img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" />
+              </a>
+
+              <!-- Google+ -->
+              <a href="https://plus.google.com/share" target="_blank">
+                <img src="https://simplesharebuttons.com/images/somacro/google.png" alt="Google" />
+              </a>
+
+              <!-- Twitter -->
+              <a href="https://twitter.com/share" target="_blank">
+                <img src="https://simplesharebuttons.com/images/somacro/twitter.png" alt="Twitter" />
+              </a>
             </div>
-            <div class="col s8">
-              <p>
-                <input type="checkbox" id="test8" disabled="disabled" ng-model="review.terrain3" />
-                <label for="test8">Water</label>
-              </p>
-              <p>
-                <input type="checkbox" id="test9" disabled="disabled" ng-model="review.terrain4" />
-                <label for="test9">Hills</label>
-              </p>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4"> {{review.name}}<i class="material-icons right fa fa-window-close"></i></span>
+            <p>Coordinates: Latitude: {{review.lat | number:3}} Longitude: {{review.lng | number:3}}</p>
+            <p>Type of Drone: {{review.drone}}</p>
+            <p>Date Visited: {{review.date | date:'mediumDate'}}</p>
+            <p>Review : {{review.review}}</p>
+            <label for="checkboxRows"></label>
+            <div class="row" id="checkboxRows">
+              <form action="#">
+                <div class="col s8">
+                  <p>
+                    <input type="checkbox" id="test5" disabled="disabled" ng-model="review.terrain" />
+                    <label for="test5">Flat</label>
+                  </p>
+                  <p>
+                    <input type="checkbox" id="test6" disabled="disabled" ng-model="review.terrain1" />
+                    <label for="test6">Heavily Wooded</label>
+                  </p>
+                  <p>
+                    <input type="checkbox" id="test7" disabled="disabled" ng-model="review.terrain2" />
+                    <label for="test7">Swamp</label>
+                  </p>
+                </div>
+                <div class="col s8">
+                  <p>
+                    <input type="checkbox" id="test8" disabled="disabled" ng-model="review.terrain3" />
+                    <label for="test8">Water</label>
+                  </p>
+                  <p>
+                    <input type="checkbox" id="test9" disabled="disabled" ng-model="review.terrain4" />
+                    <label for="test9">Hills</label>
+                  </p>
+                </div>
+              </form>
             </div>
-          </form>
+          </div>
         </div>
-      </td>
-      <td>
-        <img class="materialboxed" width="200" ng-src="{{review.image}}">
-      </td>
-      <td>
-        <button class="btn btn-danger fa fa-trash-o" ng-click="deleteReview(review.id)"></button>
-      </td>
-      <td>
-        <button class="btn btn-danger" ng-click="editReview(review.id)">Edit</button>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<!-- AddToAny BEGIN -->
-<!-- <a class="a2a_dd" href="https://www.addtoany.com/share"><img src="https://static.addtoany.com/buttons/share_save_171_16.png" width="171" height="16" border="0" alt="Share"/></a>
-<script async src="https://static.addtoany.com/menu/page.js"></script> -->
-<!-- AddToAny END -->
-<div id="share-buttons">
-    <!-- Email -->
-    <a href="mailto:?Subject=Simple Share Buttons&amp;Body=I%20saw%20this%20and%20thought%20of%20you!%20 https://simplesharebuttons.com">
-        <img src="https://simplesharebuttons.com/images/somacro/email.png" alt="Email" />
-    </a>
- 
-    <!-- Facebook -->
-    <a href="http://www.facebook.com/sharer.php" target="_blank">
-        <img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" />
-    </a>
-    
-    <!-- Google+ -->
-    <a href="https://plus.google.com/share" target="_blank">
-        <img src="https://simplesharebuttons.com/images/somacro/google.png" alt="Google" />
-    </a>
-
-    <!-- Print -->
-    <a href="javascript:;" onclick="window.print()">
-        <img src="https://simplesharebuttons.com/images/somacro/print.png" alt="Print" />
-    </a>
-    <!-- Twitter -->
-    <a href="https://twitter.com/share" target="_blank">
-        <img src="https://simplesharebuttons.com/images/somacro/twitter.png" alt="Twitter" />
-    </a>
-
-
+      </div>
+    </div>
+  </div>
 </div>
-</div>
-</div>
-</div>
+<!-- </div> -->

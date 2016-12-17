@@ -48,6 +48,12 @@ app.config(function($routeProvider){
 			controller: 'ReviewCtrl',
 			resolve: {isAuth} 
 		})
+		.when('/users/edit/review/:reviewId', {
+			templateUrl:'partials/review.html',
+			controller: 'EditReviewCtrl',
+			resolve: {isAuth} 
+		})		
+		
 		.when('/logout', {
 			templateUrl:'partials/auth.html',
 			controller: 'AuthCtrl',

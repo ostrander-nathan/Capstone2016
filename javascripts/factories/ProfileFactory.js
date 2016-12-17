@@ -34,11 +34,11 @@ app.factory("ProfileFactory", function($q, $http, FIREBASE_CONFIG, GOOGLEAPIKEY)
 	};
 
 	var deleteReviewFB = function(reviewId){
-		console.log("reviewId",reviewId );
+		// console.log("reviewId",reviewId );
 		return $q((resolve, reject)=>{
 			$http.delete(`${FIREBASE_CONFIG.databaseURL}/locations/${reviewId}.json`)
 			.success(function(deleteReviewResponse){
-				console.log("deleteReviewResponse in profile factory",deleteReviewResponse);
+				// console.log("deleteReviewResponse in profile factory",deleteReviewResponse);
 				resolve(deleteReviewResponse);
 			}).error(function(postError){
 				reject(postError);
@@ -46,30 +46,45 @@ app.factory("ProfileFactory", function($q, $http, FIREBASE_CONFIG, GOOGLEAPIKEY)
 		});
 	};
 
-	var editReviewFB = function(editItem){
-    return $q((resolve, reject) =>{
-      $http.put(`${FIREBASE_CONFIG.databaseURL}/locations/${editItem}.json`,
-         JSON.stringify({
-			name: editItem.name,
-			review: editItem.review
+	var getSingleReviewFB = function(reviewId){
+	    return $q((resolve, reject) => {
+	      $http.get(`${FIREBASE_CONFIG.databaseURL}/locations/${reviewId}.json`)
+	      .success(function(getSingleReview){
+	        resolve(getSingleReview);
+	      })
+	      .error(function(getSingleError){
+	        reject(getSingleError);
+	      });
+	    });
+	  };
 
-         })
-       )
-        .success(function(editResponse){
-          resolve(editResponse);
-        })
-        .error(function(editError){
-          reject(editError);
-        });
-    });
-  };
+
+
+
+  // var getMapFB = function(getMap) {
+  // 	console.log("getMap",getMap )
+  // 	return $q((resolve, reject) =>{
+  //     $http.get(`${FIREBASE_CONFIG.databaseURL}/locations/${getMap}.json`,
+  //        JSON.stringify({
+		// 		lng: reviewData.lng,
+		// 		lat: reviewData.lat
+  //        })
+  //      )
+  //       .success(function(editResponse){
+  //         resolve(editResponse);
+  //       })
+  //       .error(function(editError){
+  //         reject(editError);
+  //       });
+  //   });
+  // };
 
 	return {
+		// getMapFB: getMapFB,
+		getSingleReviewFB: getSingleReviewFB,
 		getReviewFB: getReviewFB, 
 		postReviewFB: postReviewFB,
-		deleteReviewFB:deleteReviewFB,
-		editReviewFB: editReviewFB
+		deleteReviewFB:deleteReviewFB
+		// editReviewFB: editReviewFB
 	};
-
-
 });

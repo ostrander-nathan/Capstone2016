@@ -1,13 +1,15 @@
-<div ng-controller="GoogleCtrl" ng-show="user">
+<div ng-show="user">
+<div class="mapHolder">
   <div class="text-right">
-  <h3>Find a Location to Fly!</h3>
+    <h1>Find a Location to Fly!</h1>
     <div class="input-append text-right">
-      <input id="pac-input" class="controls"  ng-model="query" type="text" placeholder="SearchBox"/>
+      <input id="pac-input" class="controls" ng-model="query" type="text" placeholder="SearchBox" />
       <button class="btn waves-effect waves-light" type="button" ng-click="search()" ng-disabled="query.length == 0" title="search">
         <i class="icon-search"></i>Search Location
       </button>
     </div>
   </div>
-<div id="map">
+  <div id="map">
   </div>
+</div>
 </div>
