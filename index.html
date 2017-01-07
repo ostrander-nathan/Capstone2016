@@ -7,19 +7,24 @@
     <link rel="stylesheet" type="text/css" href="/lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="styles/main.css">
-    <meta name="google-signin-scope" content="profile email">
-    <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Jura"/>
+    <link rel="shortcut icon" type="image/x-icon" href="/images/droneIcon.png" />
   </head>
-
+  <header>
+    <div id="logo"></div>
+  </header>
   <body ng-app="EyeFly">
     <div ng-include="'./partials/navbar.html'"></div>
+<div ng-view></div>
 
-    <div class="container-fluid">
-            <div ng-view></div>
-        </div>
-
-
+<!-- FOOTER START -->
+<div class="footer">
+  <p>Copyright (c) 2016 | Contact | <a class="mailto" href="mailto:nathanostrander5@gmail.com">E-Mail</a> 
+  </p>
+</div>
+<!-- FOOTER END -->
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
     <script src="https://www.gstatic.com/firebasejs/3.6.2/firebase.js"></script>
     <script type="text/javascript" src="/lib/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>

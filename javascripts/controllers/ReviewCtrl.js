@@ -17,6 +17,6 @@ app.controller("ReviewCtrl", function($scope, $rootScope, $routeParams, GoogleFa
 
   // counts characters
   $(document).ready(function() {
-  $('input#input_text, textarea#textarea1').characterCounter();
+    $('input#input_text, textarea#textarea1').characterCounter();
   });
 });

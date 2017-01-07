@@ -58,33 +58,10 @@ app.factory("ProfileFactory", function($q, $http, FIREBASE_CONFIG, GOOGLEAPIKEY)
 	    });
 	  };
 
-
-
-
-  // var getMapFB = function(getMap) {
-  // 	console.log("getMap",getMap )
-  // 	return $q((resolve, reject) =>{
-  //     $http.get(`${FIREBASE_CONFIG.databaseURL}/locations/${getMap}.json`,
-  //        JSON.stringify({
-		// 		lng: reviewData.lng,
-		// 		lat: reviewData.lat
-  //        })
-  //      )
-  //       .success(function(editResponse){
-  //         resolve(editResponse);
-  //       })
-  //       .error(function(editError){
-  //         reject(editError);
-  //       });
-  //   });
-  // };
-
 	return {
-		// getMapFB: getMapFB,
 		getSingleReviewFB: getSingleReviewFB,
 		getReviewFB: getReviewFB, 
 		postReviewFB: postReviewFB,
 		deleteReviewFB:deleteReviewFB
-		// editReviewFB: editReviewFB
 	};
 });

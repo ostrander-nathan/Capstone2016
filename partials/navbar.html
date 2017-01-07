@@ -5,7 +5,7 @@
         <img src="/images/nashvilledrone.jpg">
       </div>
       <a><img class="circle" src="/images/droneIcon.png"></a>
-      <a><span class="white-text name" ng-model="user.username">{{user.username}}</span></a>
+      <a><span class="white-text name" ng-model="user.username" id="navName">{{user.username}}</span></a>
       <a><span class="white-text email" ng-model="user.email">{{user.email}}</span></a>
     </div>
   </li>
@@ -15,11 +15,13 @@
     <div class="divider"></div>
   </li>
   <li><label>External Links</label></li>
-  <li><a class="waves-effect" href="https://www.faa.gov/uas/">Federal Laws</a></li>
+  <li><a class="waves-effect" href="https://www.faa.gov/uas/" target="_newtab">Federal Laws</a></li>
   
-  <li><a class="waves-effect" href="http://knowbeforeyoufly.org/air-space-map/">Air Space Map</a></li>
+  <li><a class="waves-effect" href="http://knowbeforeyoufly.org/air-space-map/" target="_newtab">Air Space Map</a></li>
     <div class="divider"></div>
+
   <li><a href="/#/logout" ng-click="logout">Logout</a></li>
+
 </ul>
 <div class="navBtn">
   <a href="#" data-activates="slide-out" class="button-collapse" ng-show="user"><i class="material-icons"><i class="fa fa-bars fa-3x" aria-hidden="true"></i></i></a>
