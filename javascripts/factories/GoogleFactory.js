@@ -13,13 +13,13 @@ app.factory("GoogleFactory", function($q, $http, FIREBASE_CONFIG, GOOGLEAPIKEY) 
             };
             var service = new google.maps.places.PlacesService(map);
             service.textSearch(request, callback);
-            console.log(request, callback);
+            // console.log(request, callback);
 
             function callback(results, status) {
               if (status == google.maps.places.PlacesServiceStatus.OK) {
                 for (var i = 0; i < results.length; i++) {
                   var place = results[i];
-                  console.log(place);
+                  // console.log(place);
                 }
                 resolve(results);
               }

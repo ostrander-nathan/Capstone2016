@@ -6,7 +6,7 @@ app.controller("EditReviewCtrl", function($scope, $rootScope, $routeParams, Goog
       ProfileFactory.getSingleReviewFB(reviewID).then(function(response) {
         response.date = new Date(response.Date);
         $scope.list = response;
-        console.log("$scope.list in editReviewCtrl", $scope.list);
+        // console.log("$scope.list in editReviewCtrl", $scope.list);
       });
 
       $scope.submit = function() {

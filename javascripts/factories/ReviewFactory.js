@@ -22,11 +22,11 @@ app.factory("ReviewFactory", function($q, $http, FIREBASE_CONFIG, GOOGLEAPIKEY){
 				terrain4: reviewData.terrain4
 			}))
 			.success(function(postResponse){
-				console.log("postResponse",postResponse );
+				// console.log("postResponse",postResponse );
 				resolve(postResponse);
 			})
 			.error(function(postError){
-				console.log("postError",postError );
+				// console.log("postError",postError );
 				reject(postError);
 			});
 		});
@@ -42,7 +42,7 @@ app.factory("ReviewFactory", function($q, $http, FIREBASE_CONFIG, GOOGLEAPIKEY){
 					locations.push(response[key]);
                 });
 				resolve(locations);
-				console.log("locations in review factory",locations );
+				// console.log("locations in review factory",locations );
 			}).error(function(error){
 				reject(error);
 			});

@@ -4,10 +4,10 @@ app.controller("ReviewCtrl", function($scope, $rootScope, $routeParams, GoogleFa
       lat: $routeParams.lat,
       lng: $routeParams.lng
     };
-    console.log("$scope.list", $scope.list);
+    // console.log("$scope.list", $scope.list);
 
     $scope.submit = function() {
-      console.log("$scope.list", $scope.list);
+      // console.log("$scope.list", $scope.list);
       ReviewFactory.postReview($scope.list, $rootScope.user.uid);
       ReviewFactory.getReview($scope.list, $rootScope.user.uid).then(function(reviewId) {
         $location.url("/users/profile");
