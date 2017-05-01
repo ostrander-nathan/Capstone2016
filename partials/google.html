@@ -1,16 +1,17 @@
 <div ng-show="user">
-  <p class="clickReview">Click on Map to Add Review<p>
-<div class="mapHolder">
-  <div class="text-right">
-    <h1>Find a Location to Fly!</h1>
-    <div class="input-append text-right">
-      <input id="pac-input" class="controls" ng-model="query" type="text" placeholder="SearchBox" />
-      <button class="btn waves-effect waves-light" type="button" ng-click="search()" ng-disabled="query.length == 0" title="search">
-        <i class="icon-search"></i>Search Location
-      </button>
-    </div>
-  </div>
-  <div id="map">
-  </div>
-</div>
+    <p class="clickReview">Click on Map to Add Review
+        <p>
+            <div class="mapHolder">
+                <div class="text-right">
+                    <h1>Find a Location to Fly!</h1>
+                    <div class="input-append text-right">
+                        <input id="pac-input" class="controls" ng-model="query" type="text" placeholder="SearchBox" />
+                        <button class="btn waves-effect waves-light" type="button" ng-click="search()" ng-disabled="query.length == 0" title="search">
+                            <i class="icon-search"></i>Search Location
+                        </button>
+                    </div>
+                </div>
+                <div id="map">
+                </div>
+            </div>
 </div>

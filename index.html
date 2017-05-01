@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>Capstone</title>
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -8,22 +9,20 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="styles/main.css">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Jura"/>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Jura" />
     <link rel="shortcut icon" type="image/x-icon" href="/images/droneIcon.png" />
-  </head>
-  <header>
+</head>
+<header>
     <div id="logo"></div>
-  </header>
-  <body ng-app="EyeFly">
-    <div ng-include="'./partials/navbar.html'"></div>
-<div ng-view></div>
+</header>
 
-<!-- FOOTER START -->
-<div class="footer">
-  <p>Copyright (c) 2016 | Contact | <a class="mailto" href="mailto:nathanostrander5@gmail.com">E-Mail</a> 
-  </p>
-</div>
-<!-- FOOTER END -->
+<body ng-app="EyeFly">
+    <div ng-include="'./partials/navbar.html'"></div>
+    <div ng-view></div>
+    <div class="footer">
+        <p>Copyright (c) 2016 | Contact | <a class="mailto" href="mailto:nathanostrander5@gmail.com">E-Mail</a>
+        </p>
+    </div>
     <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
     <script src="https://www.gstatic.com/firebasejs/3.6.2/firebase.js"></script>
     <script type="text/javascript" src="/lib/bower_components/jquery/dist/jquery.min.js"></script>
@@ -32,25 +31,21 @@
     <script type="text/javascript" src="/lib/bower_components/angular/angular.min.js"></script>
     <script type="text/javascript" src="/lib/bower_components/angular-route/angular-route.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXthUa8vcAGJH4RjkF2TmlkrQ4uXn67XY&libraries=places,visualization"></script>
-
     <script type="text/javascript" src="/javascripts/app.js"></script>
     <script type="text/javascript" src="/javascripts/AppConstants.js"></script>
     <script type="text/javascript" src="/javascripts/AppConfig.js"></script>
-
     <script type="text/javascript" src="/javascripts/factories/AuthFactory.js"></script>
     <script type="text/javascript" src="/javascripts/factories/GoogleFactory.js"></script>
     <script type="text/javascript" src="/javascripts/factories/ProfileFactory.js"></script>
     <script type="text/javascript" src="/javascripts/factories/ReviewFactory.js"></script>
     <script type="text/javascript" src="/javascripts/factories/UserFactory.js"></script>
     <script type="text/javascript" src="/javascripts/Directives/fileread.js"></script>
-   
     <script type="text/javascript" src="/javascripts/controllers/AuthCtrl.js"></script>
     <script type="text/javascript" src="/javascripts/controllers/GoogleCtrl.js"></script>
     <script type="text/javascript" src="/javascripts/controllers/ProfileCtrl.js"></script>
     <script type="text/javascript" src="/javascripts/controllers/ReviewCtrl.js"></script>
     <script type="text/javascript" src="/javascripts/controllers/EditReviewCtrl.js"></script>
     <script type="text/javascript" src="/javascripts/controllers/NavCtrl.js"></script>
-
-  </body>
+</body>
 
 </html>
